@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to our competition</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+        function validateForm() {
+            var user_name = document.getElementById("userName").value;
+            var email = document.getElementById("emailAddress").value;
+            var birthdate = document.getElementById("birthday").value;
+
+            if (user_name.trim() === "") {
+                alert("Please enter your Name.");
+                return false;
+            }
+
+            if (email.trim() === "") {
+                alert("Please enter your email address.");
+                return false;
+            }
+
+            if (birthdate.trim() === "") {
+                alert("Please enter your birthday.");
+                return false;
+            }
+
+            // Calculate the user's age based on the entered birthdate
+            var today = new Date();
+            var birthdateObj = new Date(birthdate);
+            var age = today.getFullYear() - birthdateObj.getFullYear();
+            
+            // Check if the user has already had their birthday this year
+            if (
+                today.getMonth() < birthdateObj.getMonth() ||
+                (today.getMonth() === birthdateObj.getMonth() &&
+                today.getDate() < birthdateObj.getDate())
+            ) {
+                age--;
+            }
+
+            // Check if the user is at least 18 years old
+            if (age < 18) {
+                alert("You must be at least 18 years old to enter this competition.");
+                return false;
+            }
+
+            return true;
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="h2 heading">In order to subscribe to this competition please complete the form below</h1>
+
+        <form action="submit.php" method="POST" class="form" onsubmit="return validateForm()">
+            <h2 class="h5">Enter your details</h2>
+            <div class="mb-3">
+                <label for="userName" class="form-label">Name</label>
+                <input
+                    type="user_name"
+                    required
+                    class="form-control"
+                    id="userName"
+                    name="user_name"
+                    placeholder="John Doe"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="emailAddress" class="form-label">Email address</label>
+                <input
+                    type="email"
+                    required
+                    class="form-control"
+                    id="emailAddress"
+                    name="email"
+                    placeholder="john@email.com"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="birthday" class="form-label">Birthday</label>
+                <input
+                    type="date"
+                    class="form-control"
+                    id="birthday"
+                    name="birthday"
+                    required
+                />
+            </div>
+            <div class="col-12">
+                <input
+                    class="btn btn-primary"
+                    type="submit"
+                    value="Submit"
+                />
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
