@@ -35,7 +35,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <title>Welcome to our competition</title>
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
             </head>
-            <body><div class="container"><div class="card"><div class="card-body"><h5 class="card-title">Error!</h5><p class="card-text">This email address has already been used.</p></div></div></div></body></html>';
+            <body>
+            <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Error!</h5>
+            <p class="card-text">This email address has already been used.</p>
+            <br>
+            <a class="btn btn-secondary" href="./index.html" role="button">Go back</a>
+            </div>
+            </div>
+            </div>
+            </body>
+            </html>';
             exit();
         }
 
@@ -57,7 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                     <h5 class="card-title">Thank you for entering our competition!</h5>
                                                     <p class="card-text">The lucky winner will be drawn at random after the competition closes. Good luck!</p>
                                                 </div> 
-                                                <a class="btn btn-primary" href="./index.html" role="button">Go back</a>
+                                                <br>
+                                                <a class="btn btn-secondary" href="./index.html" role="button">Go back</a>
                                         </div>
                                     </body>
                  </html>';
